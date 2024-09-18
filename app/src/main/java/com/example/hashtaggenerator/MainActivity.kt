@@ -1,24 +1,16 @@
 package com.example.hashtaggenerator
 
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import com.example.hashtaggenerator.databinding.ActivityMainBinding
+import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val input4 = findViewById<EditText>(R.id.input4)
         val input5 = findViewById<EditText>(R.id.input5)
         val generateButton = findViewById<Button>(R.id.generateButton)
+        val copyButton = findViewById<Button>(R.id.copyButton)
         val outputTextView = findViewById<TextView>(R.id.outputTextView)
 
         // 버튼 클릭 시 해시태그 생성
@@ -43,6 +36,16 @@ class MainActivity : AppCompatActivity() {
             // 해시태그 형식으로 출력
             val hashtagResult = "#$word1 #$word2 #$word3 #$word4 #$word5"
             outputTextView.text = hashtagResult
+        }
+
+        // 버튼 클릭 시 해시태그를 클립보드에 복사
+        copyButton.setOnClickListener {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Hashtags", outputTextView.text.toString())
+            clipboard.setPrimaryClip(clip)
+
+            // 사용자에게 복사 완료 메시지 표시
+            Toast.makeText(this, "Hashtags copied to clipboard", Toast.LENGTH_SHORT).show()
         }
     }
 }

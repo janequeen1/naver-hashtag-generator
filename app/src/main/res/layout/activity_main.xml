@@ -1,5 +1,5 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,43 +9,47 @@
         android:id="@+id/input1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="첫 번째 단어 입력" />
+        android:hint="Input 1"/>
 
     <EditText
         android:id="@+id/input2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="두 번째 단어 입력" />
+        android:hint="Input 2"/>
 
     <EditText
         android:id="@+id/input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="세 번째 단어 입력" />
+        android:hint="Input 3"/>
 
     <EditText
         android:id="@+id/input4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="네 번째 단어 입력" />
+        android:hint="Input 4"/>
 
     <EditText
         android:id="@+id/input5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="다섯 번째 단어 입력" />
+        android:hint="Input 5"/>
 
     <Button
         android:id="@+id/generateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="해시태그 생성" />
+        android:text="Generate Hashtags"/>
 
     <TextView
         android:id="@+id/outputTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="해시태그 출력"
-        android:paddingTop="16dp"
         android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy Hashtags"/>
 </LinearLayout>
